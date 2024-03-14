@@ -1,0 +1,47 @@
+.title {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 1rem;
+}
+
+.title h1 {
+    font-weight: 300;
+}
+
+.form_info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+Form {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 1rem;
+}
+
+.form_controller {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 1rem;
+}
+
+.form_controller label {
+    margin-bottom: 0.5rem;
+}
+
+.form_controller input {
+    border: none;
+    border-bottom: 1px solid lightgray;
+}
+
+.form_controller select {
+    width: fit-content;
+}
+
+Form button {
+    width: 10%;
+    padding: 8px 0;
+    border: none;
+    background-color: #008080;
+    color: white;
+    cursor: pointer;
+}

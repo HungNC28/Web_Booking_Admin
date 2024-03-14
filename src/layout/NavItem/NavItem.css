@@ -1,0 +1,50 @@
+.NavItemcontainer {
+  margin-block: 1rem;
+}
+.NavItemTitle {
+  text-transform: uppercase;
+}
+
+.NavItemUl {
+  list-style-type: none;
+  padding: 0;
+}
+
+.NavItemLi {
+  margin-block: 0.3rem;
+}
+
+.active {
+  background-color: #bfb1f3;
+}
+
+.NavItemLi a {
+  display: grid;
+  grid-template-columns: 1fr 11fr;
+  text-decoration: none;
+  color: black;
+  padding-inline: 0.3rem;
+  border-radius: 5px;
+}
+
+.NavItembtn {
+  background-color: transparent;
+  border: none;
+  font-size: 1rem;
+  display: flex;
+  padding-inline: 0.3rem;
+  cursor: pointer;
+}
+
+a:hover {
+  background-color: #bfb1f3;
+}
+
+i {
+  margin-block: auto;
+  color: #6940ff;
+}
+
+span {
+  margin-left: 0.5rem;
+}

@@ -1,0 +1,26 @@
+.containerLatest {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 0.5rem;
+    border-radius: 5px;
+}
+
+.containerLatest [title="Booked"] {
+    color: #12833e;
+    background-color: #f69685;
+    padding: 8px 4px;
+    border-radius: 4px;
+}
+
+.containerLatest [title="Checkin"] {
+    color: #12833e;
+    background-color: #39d139;
+    padding: 8px 4px;
+    border-radius: 4px;
+}
+
+.containerLatest [title="Checkout"] {
+    color: #12833e;
+    background-color: #dedbfd;
+    padding: 8px 4px;
+    border-radius: 4px;
+}

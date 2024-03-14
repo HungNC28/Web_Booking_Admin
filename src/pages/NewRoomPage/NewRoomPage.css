@@ -1,0 +1,15 @@
+.form_button {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form_button .form_controller {
+    width: 20%;
+}
+
+.form_button button {
+    margin-top: 3rem;
+    margin-right: 5rem;
+    padding: 8px 12px;
+    cursor: pointer;
+}
