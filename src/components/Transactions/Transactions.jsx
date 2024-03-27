@@ -2,6 +2,7 @@ import "./Transactions.css";
 import Box from "@mui/material/Box";
 import { DataGrid } from "@mui/x-data-grid";
 import { useState, useEffect } from "react";
+import { BASE_URL } from "../../utils/const";
 
 export default function Transactions() {
     const [lastest, setLastest] = useState([]);
@@ -9,7 +10,7 @@ export default function Transactions() {
         // fetch transaction data
         const dataFetch = async () => {
             const transactions = await (
-                await fetch(`http://localhost:5000/api/admin/lastest`)
+                await fetch(`${BASE_URL}/admin/lastest`)
             ).json();
 
             if (transactions) {

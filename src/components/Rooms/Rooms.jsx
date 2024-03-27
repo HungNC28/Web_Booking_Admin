@@ -4,14 +4,13 @@ import Box from "@mui/material/Box";
 import { DataGrid } from "@mui/x-data-grid";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { BASE_URL } from "../../utils/const";
 
 export default function Rooms() {
     const navigate = useNavigate();
     const [rooms, setRooms] = useState([]);
     const dataFetch = async () => {
-        const data = await (
-            await fetch(`http://localhost:5000/api/admin/rooms`)
-        ).json();
+        const data = await (await fetch(`${BASE_URL}/admin/rooms`)).json();
 
         if (data) {
             setRooms(data);
@@ -49,15 +48,12 @@ export default function Rooms() {
             width: 150,
             renderCell: (e) => {
                 const deleteHandle = () => {
-                    fetch(
-                        `http://localhost:5000/api/admin/rooms/delete/${e.row.id}`,
-                        {
-                            method: "delete",
-                            headers: {
-                                "Content-Type": "application/json",
-                            },
-                        }
-                    )
+                    fetch(`${BASE_URL}/admin/rooms/delete/${e.row.id}`, {
+                        method: "delete",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                    })
                         .then((response) => {
                             if (response.status === 200) {
                                 if (

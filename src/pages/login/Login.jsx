@@ -1,6 +1,7 @@
 import "./Login.css";
 import { Form, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { BASE_URL } from "../../utils/const";
 
 export default function Login() {
     const navigate = useNavigate();
@@ -9,16 +10,13 @@ export default function Login() {
 
     const clickHandle = async () => {
         try {
-            const response = await fetch(
-                "http://localhost:5000/api/admin/login",
-                {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({ username, password }),
-                }
-            );
+            const response = await fetch(`${BASE_URL}/admin/login`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ username, password }),
+            });
 
             if (response.status === 401) {
                 alert("Password or username is not correct");

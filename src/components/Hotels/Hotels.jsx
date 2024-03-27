@@ -4,14 +4,13 @@ import Box from "@mui/material/Box";
 import { DataGrid } from "@mui/x-data-grid";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { BASE_URL } from "../../utils/const";
 
 export default function Hotels() {
     const navigate = useNavigate();
     const [hotels, setHotels] = useState([]);
     const dataFetch = async () => {
-        const data = await (
-            await fetch(`http://localhost:5000/api/admin/hotels`)
-        ).json();
+        const data = await (await fetch(`${BASE_URL}/admin/hotels`)).json();
 
         if (data) {
             setHotels(data);
@@ -48,15 +47,12 @@ export default function Hotels() {
             width: 150,
             renderCell: (e) => {
                 const deleteHandle = () => {
-                    fetch(
-                        `http://localhost:5000/api/admin/hotels/delete/${e.row.id}`,
-                        {
-                            method: "delete",
-                            headers: {
-                                "Content-Type": "application/json",
-                            },
-                        }
-                    )
+                    fetch(`${BASE_URL}/admin/hotels/delete/${e.row.id}`, {
+                        method: "delete",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                    })
                         .then((response) => {
                             if (response.status === 200) {
                                 if (

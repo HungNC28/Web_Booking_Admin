@@ -1,20 +1,20 @@
 import "./EditHotel.css";
 import { useParams, Form, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { BASE_URL } from "../../utils/const";
 
 export default function EditHotel() {
     const navigate = useNavigate();
     const { hotelId } = useParams();
     const [hotel, setHotel] = useState({});
 
-    const url = `http://localhost:5000/api/hotels/${hotelId}`;
+    const url = `${BASE_URL}/hotels/${hotelId}`;
 
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const response = await fetch(url); // Thay đổi URL thành URL thực tế của API
                 const jsonData = await response.json();
-                console.log("000000000", jsonData);
                 if (jsonData) {
                     setHotel({ ...jsonData });
                 }
@@ -31,7 +31,7 @@ export default function EditHotel() {
     const submitHandle = (e) => {
         e.preventDefault();
 
-        fetch(`http://localhost:5000/api/admin/hotels/update/${hotelId}`, {
+        fetch(`${BASE_URL}/admin/hotels/update/${hotelId}`, {
             method: "post",
             headers: {
                 "Content-Type": "application/json",

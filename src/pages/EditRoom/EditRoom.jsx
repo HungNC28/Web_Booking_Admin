@@ -1,6 +1,7 @@
 import "./EditRoom.css";
 import { Form, useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { BASE_URL } from "../../utils/const";
 
 export default function EditRoom() {
     const navigate = useNavigate();
@@ -15,7 +16,7 @@ export default function EditRoom() {
     // const [nameHotel, setNameHotel] = useState("");
 
     // Tìm room theo Id
-    const url = `http://localhost:5000/api/rooms/${roomId}`;
+    const url = `${BASE_URL}/rooms/${roomId}`;
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -33,7 +34,7 @@ export default function EditRoom() {
     const submitHandle = (e) => {
         e.preventDefault();
 
-        fetch(`http://localhost:5000/api/admin/rooms/update/${roomId}`, {
+        fetch(`${BASE_URL}/admin/rooms/update/${roomId}`, {
             method: "post",
             headers: {
                 "Content-Type": "application/json",

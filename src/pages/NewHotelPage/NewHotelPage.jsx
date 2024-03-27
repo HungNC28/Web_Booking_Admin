@@ -1,6 +1,7 @@
 import { Form, useNavigate } from "react-router-dom";
 import "./NewHotelPage.css";
 import { useState } from "react";
+import { BASE_URL } from "../../utils/const";
 
 export default function NewHotelPage() {
     const navigate = useNavigate();
@@ -52,7 +53,7 @@ export default function NewHotelPage() {
                 featured,
                 rooms: rooms.split(","),
             };
-            fetch("http://localhost:5000/api/admin/hotels/add", {
+            fetch(`${BASE_URL}/admin/hotels/add`, {
                 method: "post",
                 headers: {
                     "Content-Type": "application/json",

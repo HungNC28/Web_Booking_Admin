@@ -4,6 +4,7 @@ import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import PaidOutlinedIcon from "@mui/icons-material/PaidOutlined";
 import AccountBalanceWalletOutlinedIcon from "@mui/icons-material/AccountBalanceWalletOutlined";
+import { BASE_URL } from "../../../utils/const";
 
 export default function DashboardInfor() {
     const [dashboard, setDashboard] = useState({});
@@ -11,7 +12,7 @@ export default function DashboardInfor() {
         // fetch transaction data
         const dataFetch = async () => {
             const transactions = await (
-                await fetch(`http://localhost:5000/api/admin/dashboard`)
+                await fetch(`${BASE_URL}/admin/dashboard`)
             ).json();
 
             if (transactions) {

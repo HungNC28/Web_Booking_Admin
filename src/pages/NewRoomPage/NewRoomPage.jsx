@@ -1,6 +1,7 @@
 import "./NewRoomPage.css";
 import { Form, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { BASE_URL } from "../../utils/const";
 
 export default function NewRoomPage() {
     const navigate = useNavigate();
@@ -13,9 +14,7 @@ export default function NewRoomPage() {
     const [nameHotel, setNameHotel] = useState("");
 
     const dataFetch = async () => {
-        const data = await (
-            await fetch(`http://localhost:5000/api/admin/hotels`)
-        ).json();
+        const data = await (await fetch(`${BASE_URL}/admin/hotels`)).json();
 
         if (data) {
             setHotels(data);
@@ -44,7 +43,7 @@ export default function NewRoomPage() {
                 title,
             };
 
-            fetch("http://localhost:5000/api/admin/rooms/add", {
+            fetch(`${BASE_URL}/admin/rooms/add`, {
                 method: "post",
                 headers: {
                     "Content-Type": "application/json",
